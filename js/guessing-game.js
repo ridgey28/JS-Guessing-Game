@@ -3,7 +3,7 @@
  * JavaScript Guesing Game V1.0
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
- * Page URL: 
+ * Page URL: https://wp.me/poe8j-3uC
  */
 
  /**
