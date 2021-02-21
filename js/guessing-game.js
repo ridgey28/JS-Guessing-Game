@@ -43,18 +43,18 @@ let addToSession = (item) => {
 		data = [],
 		store = item[0],
 		saveData = item[1],
-		theSession = [];
+		sessionData = [];
 	data.push(saveData);
 	// If the session return nothing
 	if (session === null) {
 		//create for the first time
-		theSession = data;
+		sessionData = data;
 	} else {
 		//grab data and merge
 		session.push(data);
-		theSession = session;
+		sessionData = session;
 	}
-	sessionStorage.setItem(store, JSON.stringify(theSession.flat()));
+	sessionStorage.setItem(store, JSON.stringify(sessionData.flat()));
 };
 /**
  * Get data out of session storage
@@ -78,22 +78,20 @@ let getSession = (item) => {
  *
  */
 let checkGuess = (guess) => {
+	addToSession(guess);
 	// Get user generated number
 	let generatedNumber = getSession(["computer-guess", null]),
-		message = document.getElementById("message");
-	addToSession(guess);
-	let total_guesses = countGuesses();
-	if (total_guesses <= 4) {
-		if (parseInt(guess[1]) === generatedNumber[0]) {
-			message.innerText =
-				"Jackpot, you won. You guessed it within " + total_guesses + " tries";
-			clearSession();
-		} else {
-			higherOrLower(guess[1], generatedNumber[0]);
-		}
-	} else {
+		message = document.getElementById("message"),
+		total_guesses = countGuesses();
+	if (parseInt(guess[1]) === generatedNumber[0]) {
+		message.innerText =
+			"Jackpot, you won. You guessed it within " + total_guesses + " tries";
+		clearSession();
+	} else if (total_guesses === 5) {
 		message.innerText = "You lose, you have reached the maximum guesses.";
 		clearSession();
+	} else {
+		higherOrLower(message, guess[1], generatedNumber[0]);
 	}
 };
 /**
@@ -104,7 +102,7 @@ let checkGuess = (guess) => {
  *
  * @return  {object}     Insert message into parent container
  */
-let higherOrLower = (num, num2) => {
+let higherOrLower = (message, num, num2) => {
 	if (parseInt(num) > num2) {
 		message.innerText = "You need to go lower";
 	} else {
