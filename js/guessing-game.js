@@ -1,6 +1,6 @@
 /**
  *
- * JavaScript Guesing Game V1.1
+ * JavaScript Guesing Game V1.1.1
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
  * Part 1 - Page URL: https://wp.me/poe8j-3uC
@@ -154,8 +154,11 @@ let displayGuesses = () => {
 document.getElementById("btn").addEventListener("click", (e) => {
 	e.preventDefault();
 
-	let userGuess = document.getElementById("guess"),
-		usr_array = ["user-guess", userGuess.value];
+	let userGuess = document.getElementById("guess");
+
+	userGuess.value === ""
+		? alert("Please enter a number")
+		: (usr_array = ["user-guess", userGuess.value]);
 
 	checkGuess(usr_array);
 	displayGuesses();
