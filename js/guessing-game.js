@@ -154,13 +154,15 @@ let displayGuesses = () => {
 document.getElementById("btn").addEventListener("click", (e) => {
 	e.preventDefault();
 
-	let userGuess = document.getElementById("guess");
+	let userGuess = document.getElementById("guess"),
+		usrArr = [];
 
-	userGuess.value === ""
-		? alert("Please enter a number")
-		: (usr_array = ["user-guess", userGuess.value]);
-
-	checkGuess(usr_array);
-	displayGuesses();
-	userGuess.value = "";
+	if (userGuess.value === "") {
+		alert("Please enter a number");
+	} else {
+		usrArr = ["user-guess", userGuess.value];
+		checkGuess(usrArr);
+		displayGuesses();
+		userGuess.value = "";
+	}
 });
