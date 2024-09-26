@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2019", // Target ECMAScript version
+    "module": "commonjs", // Module system to use (you can use "esnext" if using modern bundlers)
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Ensures compatibility with ES modules
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "checkJs": true, // Enable type-checking in JavaScript files
+    "outDir": "./dist/js", // Output directory for compiled files
+    "rootDir": "./src", // Root directory of your source files
+    "resolveJsonModule": true, // Allows importing of .json files
+    "skipLibCheck": true // Skip type-checking of library declaration files
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js"
+  ], // Include all JS and TS files in the src folder
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // Exclude the node_modules and dist folders
+}
