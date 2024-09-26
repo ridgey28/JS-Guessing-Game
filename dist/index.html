@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>JavaScript Guessing Game</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+  </head>
+<body>
+  <section class="hero is-fullheight">
+    <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <span class="navbar-item">
+                <h1 class="is-size-3 has-text-weight-bold">JS Guessing Game</h1>
+              </span>
+            </div>
+    </div>
+    </nav>
+    
+    </div>
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title" id="message">Pick a number</h2>
+        <div id="btn-group" class="block">
+          <button id="easy" class="btn-level button is-primary is-rounded">Easy</button>
+          <button id="medium" class="btn-level button is-primary is-rounded">Medium</button>
+          <button id="hard" class="btn-level button is-primary is-rounded">Hard</button>
+        </div>
+        <form class="form" id="guess-container">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input is-large" type="number" min="1" max="100" id="guess" placeholder="Number">
+            </div>
+            <div class="control">
+              <button id="btn" class="is-large button is-link">Submit</button>
+            </div>
+          </div>
+          <div>Press <kbd>Enter</kbd></div>
+        </form>
+        <div class="tags mt-2" id="tags">Your guesses will display here</div>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <div class="content has-text-centered">
+        <p class="small">Made by Tracy Ridge</p>
+      </div>
+      <div class="notify"></div>
+    </div>
+    </section>
+  <script src="./js/js-guessing-game.js" async></script>
+</body>
+</html>
