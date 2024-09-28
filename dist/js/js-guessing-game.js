@@ -1,20 +1,20 @@
 "use strict";
 /**
  *
- * JavaScript Guesing Game V2.0.0
+ * JavaScript Guessing Game V2.0.0
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
  * Part 1 - Page URL: https://wp.me/poe8j-3uC
  * Part 2 - Page URL: https://wp.me/poe8j-3wO
- * Part 3 - Page URL:
- */
-/**
- * Manages the state of the levels
+ * Part 3 - Page URL: https://wp.me/poe8j-4dn
  */
 const max = 100;
 const min = 1;
-let currentLevel = localStorage.getItem("level");
-let level_arr = ["10", "5", "2"];
+const currentLevel = localStorage.getItem("level");
+const level_arr = ["10", "5", "2"];
+/**
+ * Manages the state of the levels
+ */
 let diff = currentLevel !== null && currentLevel !== void 0 ? currentLevel : "5";
 const level = {
     _difficulty: diff,
@@ -44,6 +44,9 @@ window.onload = () => {
     setLevelActive();
     generateComputerGuess();
 };
+/**
+ * Manages the switching of the difficulty buttons, it's state and saves to local storage
+ */
 const setLevelActive = () => {
     let btnLevel = document.querySelectorAll(".btn-level");
     if (currentLevel !== null) {
@@ -78,9 +81,11 @@ const setLevelActive = () => {
         });
     });
 };
+/**
+ * Generates the computer guess
+ */
 const generateComputerGuess = () => {
     let genGuess = Math.floor(Math.random() * (max - min) + min), arr = ["computer-guess", genGuess], session = getSession(arr);
-    displayGuesses();
     if (session === null) {
         addToSession(arr);
     }

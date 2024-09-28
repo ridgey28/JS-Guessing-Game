@@ -1,26 +1,27 @@
 /**
  *
- * JavaScript Guesing Game V2.0.0
+ * JavaScript Guessing Game V2.0.0
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
  * Part 1 - Page URL: https://wp.me/poe8j-3uC
  * Part 2 - Page URL: https://wp.me/poe8j-3wO
- * Part 3 - Page URL: https://www.worldoweb.co.uk/2024/javascript-guessing-game-v2
+ * Part 3 - Page URL: https://wp.me/poe8j-4dn
  */
+
+const max: number = 100;
+const min: number = 1;
+const currentLevel: string | null = localStorage.getItem("level");
+const level_arr: string[] = ["10", "5", "2"];
 
 /**
  * Manages the state of the levels
  */
-const max:number = 100;
-const min:number = 1;
-let currentLevel: string | null = localStorage.getItem("level");
-let level_arr: string[] = ["10", "5", "2"];
-
-let diff:string = currentLevel ?? "5";
+let diff: string = currentLevel ?? "5";
 
 const level = {
   _difficulty: diff,
 };
+
 Object.defineProperty(level, "difficulty", {
   get: function () {
     return this._difficulty;
@@ -29,12 +30,14 @@ Object.defineProperty(level, "difficulty", {
     this._difficulty = value;
   },
 });
+
 /**
  * Shorthand Get Element By ID
  */
 const getID = (id: string) => {
   return document.getElementById(id);
 };
+
 /**
  * Executes on browser load. Saves computer guess to browser session if not set.
  */
@@ -47,6 +50,9 @@ window.onload = () => {
   generateComputerGuess();
 };
 
+/**
+ * Manages the switching of the difficulty buttons, it's state and saves to local storage
+ */
 const setLevelActive = () => {
   let btnLevel = document.querySelectorAll(".btn-level");
 
@@ -63,7 +69,7 @@ const setLevelActive = () => {
       btnLevel?.forEach((btn) => btn.classList.remove("is-active"));
       (e.target as HTMLElement).classList.add("is-active");
       let value = (e.target as HTMLElement).textContent;
- 
+
       switch (value) {
         case "Easy":
           level._difficulty = "10";
@@ -85,15 +91,18 @@ const setLevelActive = () => {
   });
 };
 
+/**
+ * Generates the computer guess
+ */
 const generateComputerGuess = () => {
   let genGuess: number = Math.floor(Math.random() * (max - min) + min),
     arr: [string, string | number] = ["computer-guess", genGuess],
     session = getSession(arr);
-  displayGuesses();
   if (session === null) {
     addToSession(arr);
   }
 };
+
 /**
  * Stores data in sessionStorage. Merges data if already exists
  */
@@ -116,6 +125,7 @@ const addToSession = (item: any[]) => {
   }
   sessionStorage.setItem(store, JSON.stringify(sessionData.flat()));
 };
+
 /**
  * Get data out of session storage
  */
@@ -124,6 +134,7 @@ const getSession = (item: [string, string | number] | (string | null)[]) => {
   const storedItem = sessionStorage.getItem(store);
   return storedItem !== null ? JSON.parse(storedItem) : null;
 };
+
 /**
  * Checks the user submitted number against the generated one
  */
@@ -139,14 +150,15 @@ const checkGuess = (guess: any[]) => {
       higherOrLower(message, guess[1], generatedNumber[0]);
       return;
     } else if (message !== null) {
-        message.innerText =
-          "Jackpot, you won. You guessed it within " + total_guesses + " tries";
-      }
+      message.innerText =
+        "Jackpot, you won. You guessed it within " + total_guesses + " tries";
+    }
   } else {
     notify("You lose, you have reached the maximum guesses.");
   }
   clearSession();
 };
+
 /**
  * Checks to see if your number matches the computer one
  */
@@ -163,6 +175,7 @@ const higherOrLower = (
     }
   }
 };
+
 /**
  * Counts the user guesses
  */
@@ -199,6 +212,7 @@ const displayGuesses = () => {
     });
   }
 };
+
 /**
  * Create notifications
  */
