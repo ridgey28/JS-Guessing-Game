@@ -1,13 +1,14 @@
 {
-    "name": "js-guessing-game",
-    "type": "module",
-    "version": "2.0.0",
-    "scripts": {
-        "build-bulma": "sass --load-path=node_modules --style=compressed ./src/css/style.scss ./dist/css/style.min.css",
-        "start": "bun run build-bulma -- --watch",
-        "tsc": "tsc -p tsconfig.json"
-    },
-    "dependencies": {
-        "bulma": "^1.0.2"
-    }
+  "name": "js-guessing-game",
+  "type": "module",
+  "version": "2.0.1",
+  "scripts": {
+    "build-bulma": "sass --load-path=node_modules --style=compressed ./src/css/style.scss ./dist/css/style.min.css",
+    "start": "bun run build-bulma -- --watch",
+    "tsc": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "bulma": "^1.0.4",
+    "sass": "^1.99.0"
+  }
 }

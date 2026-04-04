@@ -1,11 +1,11 @@
 /**
  *
- * JavaScript Guessing Game V2.0.0
+ * JavaScript Guessing Game V2.0.1
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
- * Part 1 - Page URL: https://wp.me/poe8j-3uC
- * Part 2 - Page URL: https://wp.me/poe8j-3wO
- * Part 3 - Page URL: https://wp.me/poe8j-4dn
+ * Part 1 - Page URL: https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1
+ * Part 2 - Page URL: https://www.worldoweb.co.uk/2021/easy-javascript-guessing-game-part-2
+ * Part 3 - Page URL: https://www.worldoweb.co.uk/2024/new-javascript-guessing-game-2024
  */
 
 const max: number = 100;
@@ -84,7 +84,7 @@ const setLevelActive = () => {
       localStorage.setItem("level", level._difficulty);
       if (totalGuesses > level._difficulty) {
         notify(
-          "You have already had more guesses than the difficulty chosen. Choose another level or your game will end!"
+          "You have already had more guesses than the difficulty chosen. Choose another level or your game will end!",
         );
       }
     });
@@ -165,7 +165,7 @@ const checkGuess = (guess: any[]) => {
 const higherOrLower = (
   message: HTMLElement | null,
   num: string,
-  num2: number
+  num2: number,
 ) => {
   if (message !== null) {
     if (parseInt(num) > num2) {

@@ -1,12 +1,12 @@
 "use strict";
 /**
  *
- * JavaScript Guessing Game V2.0.0
+ * JavaScript Guessing Game V2.0.1
  * Author:  Tracy Ridge
  * URL: https://www.worldoweb.co.uk/
- * Part 1 - Page URL: https://wp.me/poe8j-3uC
- * Part 2 - Page URL: https://wp.me/poe8j-3wO
- * Part 3 - Page URL: https://wp.me/poe8j-4dn
+ * Part 1 - Page URL: https://www.worldoweb.co.uk/2020/easy-javascript-guessing-game-part-1
+ * Part 2 - Page URL: https://www.worldoweb.co.uk/2021/easy-javascript-guessing-game-part-2
+ * Part 3 - Page URL: https://www.worldoweb.co.uk/2024/new-javascript-guessing-game-2024
  */
 const max = 100;
 const min = 1;
@@ -15,7 +15,7 @@ const level_arr = ["10", "5", "2"];
 /**
  * Manages the state of the levels
  */
-let diff = currentLevel !== null && currentLevel !== void 0 ? currentLevel : "5";
+let diff = currentLevel ?? "5";
 const level = {
     _difficulty: diff,
 };
@@ -60,7 +60,7 @@ const setLevelActive = () => {
     btnLevel.forEach((btn) => {
         btn.addEventListener("click", (e) => {
             const totalGuesses = countGuesses();
-            btnLevel === null || btnLevel === void 0 ? void 0 : btnLevel.forEach((btn) => btn.classList.remove("is-active"));
+            btnLevel?.forEach((btn) => btn.classList.remove("is-active"));
             e.target.classList.add("is-active");
             let value = e.target.textContent;
             switch (value) {
@@ -113,8 +113,7 @@ const addToSession = (item) => {
  * Get data out of session storage
  */
 const getSession = (item) => {
-    var _a;
-    let store = (_a = item[0]) !== null && _a !== void 0 ? _a : "";
+    let store = item[0] ?? "";
     const storedItem = sessionStorage.getItem(store);
     return storedItem !== null ? JSON.parse(storedItem) : null;
 };
@@ -226,7 +225,7 @@ if (btnElement !== null) {
             notify("Please enter a number");
             return;
         }
-        if (data === null || data === void 0 ? void 0 : data.includes(userGuess.value)) {
+        if (data?.includes(userGuess.value)) {
             notify("Number already picked");
             return;
         }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2019", // Target ECMAScript version
+    "target": "es2022", // Target ECMAScript version
     "module": "commonjs", // Module system to use (you can use "esnext" if using modern bundlers)
     "strict": true, // Enable all strict type-checking options
     "esModuleInterop": true, // Ensures compatibility with ES modules
