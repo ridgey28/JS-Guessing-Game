@@ -1,14 +1,14 @@
 # JS-Guessing-Game
 
-A simple HTML, CSS and JavaScript Guessing Game tutorial. Dependency free. Uses browser sessionStorage. The tutorial can be found at https://wp.me/poe8j-3uC
+A simple HTML, CSS and JavaScript Guessing Game tutorial. Dependency-free. Uses browser sessionStorage. The tutorial can be found at [Worldoweb](https://www.worldoweb.co.uk/2024/new-javascript-guessing-game-2024)
 
 ## New Features in V2
 
-Rewritten in TypeScript and compiled to JavaScript. Added levels, state management and localStorage, notifications.
+Rewritten in TypeScript and compiled to JavaScript. Added levels, state management, localStorage, and notifications.
 
 ## How to run
 
-You can run directly from the dist folder or compile from src if you want to make changes.
+You can run directly from the dist folder or compile from the src if you want to make changes.
 I have installed the following:
 
 - Sass Dart CLI
